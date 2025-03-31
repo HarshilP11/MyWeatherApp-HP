@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{% block title %}My Weather Report{% endblock %}</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"> 
+    {% block extra_head %}{% endblock %}
+</head> 
+
+<body style="cursor: default;"> 
+    <section class="section" style="padding: 0; background-color: rgb(21, 98, 165);"> 
+        <div class="container" style="margin-left: 3px;"> 
+            <img src="/media/surrey-logo.svg" width="175" height="75" alt="Surrey Logo"> 
+        </div> 
+    </section> 
+
+    <section class="hero is-primary"> 
+        <div class="hero-body"> 
+            <div class="container"> 
+                <h1 class="title" style="font-weight: 700;"> 
+                    My Weather Report 
+                    <span id="welcome">(Unknown User)</span> 
+                </h1> 
+            </div>
+        </div>
+    </section> 
+
+    <script>
+
+        var greetingBox = document.getElementById("welcome");
+        if (greetingBox) {
+            greetingBox.innerHTML = " (Welcome!) ";
+        }
+    </script>
+
+
+    <section class="hero is-info"> 
+        <marquee behavior="scroll" direction="left" id="cityinfo">
+            Guildford Now: 11.1℃ Clear; Tomorrow: 5.3℃ Rain, Partially cloudy 
+        </marquee> 
+    </section> 
+
+    {% block content %}{% endblock %}
+
+    <hr style="border-top:2px solid #0f0101; margin-bottom:0;"> 
+
+
+    <footer class="footer has-background-info-light" style="padding: 30px 0 30px;"> 
+        <div class="container"> 
+            <div class="level"> 
+                <div class="level-left"> 
+                    <span class="level-item"> 
+                        Styled by &nbsp;<img src="https://bulma.io/assets/brand/Bulma%20Logo.png" alt="Bulma Logo" width="75"> 
+                    </span> 
+                </div> 
+                <div class="level-right"> 
+                    <div class="level-item">
+                        <div class="content has-text-centered has-text-white-invert">© 2025 Harshil Patel</div>
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </footer> 
+
+
+    <script src="/media/weather.js"></script> 
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
